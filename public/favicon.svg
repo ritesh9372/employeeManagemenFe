@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a237e"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5f5f5"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Container -->
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)"/>
+  
+  <!-- Lanyard Strap -->
+  <path d="M26 4 L38 4 L35 14 L29 14 Z" fill="#303f9f"/>
+  <rect x="28" y="11" width="8" height="6" rx="2" fill="#ffd54f"/>
+  
+  <!-- ID Card Base -->
+  <rect x="14" y="15" width="36" height="38" rx="6" fill="url(#badgeGrad)" filter="drop-shadow(0px 2px 4px rgba(0,0,0,0.3))"/>
+  
+  <!-- Card Header Strip -->
+  <rect x="14" y="15" width="36" height="8" rx="6" fill="#1a237e"/>
+  <rect x="14" y="19" width="36" height="4" fill="#1a237e"/>
+  
+  <!-- Avatar Silhouette -->
+  <circle cx="32" cy="29" r="5.5" fill="#1a237e"/>
+  <path d="M23 44 c0-4.5 4-7.5 9-7.5 s9 3 9 7.5" fill="#1a237e"/>
+  
+  <!-- Badge Lines -->
+  <line x1="22" y1="47" x2="32" y2="47" stroke="#9e9e9e" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Verified Badge Icon -->
+  <circle cx="42" cy="42" r="6" fill="#2e7d32"/>
+  <path d="M39 42 l2 2 l4 -4" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
