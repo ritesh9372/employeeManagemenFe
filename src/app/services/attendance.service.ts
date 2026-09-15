@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AttendanceService {
-  private apiUrl = 'http://localhost:3000/api/attendance';
+  private apiUrl = `${environment.apiUrl}/attendance`;
   private http = inject(HttpClient);
 
   checkIn(workMode: string = 'Office'): Observable<any> {

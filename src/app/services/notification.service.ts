@@ -2,10 +2,11 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class NotificationService {
-  private apiUrl = 'http://localhost:3000/api/notifications';
+  private apiUrl = `${environment.apiUrl}/notifications`;
   private http = inject(HttpClient);
 
   private unreadCountSubject = new BehaviorSubject<number>(0);
@@ -41,7 +42,7 @@ export class NotificationService {
 
 @Injectable({ providedIn: 'root' })
 export class ProfileService {
-  private apiUrl = 'http://localhost:3000/api/profile';
+  private apiUrl = `${environment.apiUrl}/profile`;
   private http = inject(HttpClient);
 
   getMe(): Observable<any> {

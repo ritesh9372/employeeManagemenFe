@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DepartmentPolicyService {
-  private apiUrl = 'http://localhost:3000/api/department-leave-policies';
+  private apiUrl = `${environment.apiUrl}/department-leave-policies`;
   private http = inject(HttpClient);
 
   getPolicies(filters?: any): Observable<any> {

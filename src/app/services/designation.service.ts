@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class DesignationService {
-  private apiUrl = 'http://localhost:3000/api/designations';
+  private apiUrl = `${environment.apiUrl}/designations`;
   private http = inject(HttpClient);
 
   getAll(departmentId?: number): Observable<any> {
