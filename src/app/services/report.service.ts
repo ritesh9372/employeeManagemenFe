@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ReportService {
-  private apiUrl = 'http://localhost:3000/api/reports';
+  private apiUrl = `${environment.apiUrl}/reports`;
   private http = inject(HttpClient);
 
   getEmployeeReport(filters?: any): Observable<any> {

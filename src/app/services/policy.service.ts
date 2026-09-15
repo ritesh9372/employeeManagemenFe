@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class PolicyService {
-  private apiUrl = 'http://localhost:3000/api/leave-policies';
+  private apiUrl = `${environment.apiUrl}/leave-policies`;
   private http = inject(HttpClient);
 
   getPolicies(filters?: any): Observable<any> {

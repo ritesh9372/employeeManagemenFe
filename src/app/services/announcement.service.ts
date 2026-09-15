@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AnnouncementService {
-  private apiUrl = 'http://localhost:3000/api/announcements';
+  private apiUrl = `${environment.apiUrl}/announcements`;
   private http = inject(HttpClient);
 
   getAll(): Observable<any> {

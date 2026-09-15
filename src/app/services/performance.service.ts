@@ -1,10 +1,11 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class PerformanceService {
-  private apiUrl = 'http://localhost:3000/api/performance';
+  private apiUrl = `${environment.apiUrl}/performance`;
   private http = inject(HttpClient);
 
   getAll(filters?: any): Observable<any> {
