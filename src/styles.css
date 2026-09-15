@@ -1,1 +1,150 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: Roboto, 'Helvetica Neue', sans-serif; background: #f5f5f5; }
+
+/* ─── Layout helpers ─────────────────────────────────────────────── */
+.page-container { padding: 24px; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.table-container { overflow-x: auto; border-radius: 8px; }
+.filter-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; align-items: flex-end; }
+.filter-row mat-form-field { flex: 1; min-width: 160px; }
+.spacer { flex: 1 1 auto; }
+
+/* ─── Stat cards ─────────────────────────────────────────────────── */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+.stat-card { cursor: default; }
+.stat-card mat-card-content { padding: 16px !important; }
+.stat-icon-row { display: flex; justify-content: space-between; align-items: flex-start; }
+.stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+.stat-icon mat-icon { color: white; font-size: 24px; width: 24px; height: 24px; }
+.stat-number { font-size: 2rem; font-weight: 700; line-height: 1.2; margin-top: 12px; }
+.stat-label { font-size: 0.8rem; color: #666; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+.bg-blue { background: #1565c0; }
+.bg-green { background: #2e7d32; }
+.bg-orange { background: #e65100; }
+.bg-purple { background: #4a148c; }
+.bg-teal { background: #00695c; }
+.bg-red { background: #b71c1c; }
+.bg-indigo { background: #283593; }
+.bg-amber { background: #f57f17; }
+.bg-low { background: #e8f5e9; }
+.bg-medium { background: #fff8e1; }
+.bg-high { background: #fce4ec; }
+.bg-critical { background: #b71c1c; }
+
+/* ─── Status chips ──────────────────────────────────────────────── */
+.chip-active   { background: #e8f5e9 !important; color: #1b5e20 !important; }
+.chip-inactive { background: #ffebee !important; color: #b71c1c !important; }
+.chip-pending  { background: #fff8e1 !important; color: #e65100 !important; }
+.chip-approved { background: #e8f5e9 !important; color: #1b5e20 !important; }
+.chip-rejected { background: #ffebee !important; color: #b71c1c !important; }
+.chip-cancelled{ background: #f5f5f5 !important; color: #616161 !important; }
+.chip-draft    { background: #f5f5f5 !important; color: #616161 !important; }
+.chip-processed{ background: #e3f2fd !important; color: #0d47a1 !important; }
+.chip-paid     { background: #e8f5e9 !important; color: #1b5e20 !important; }
+.chip-present  { background: #e8f5e9 !important; color: #1b5e20 !important; }
+.chip-absent   { background: #ffebee !important; color: #b71c1c !important; }
+.chip-late     { background: #fff8e1 !important; color: #e65100 !important; }
+.chip-half_day { background: #f3e5f5 !important; color: #4a148c !important; }
+.chip-leave    { background: #e3f2fd !important; color: #0d47a1 !important; }
+.chip-public   { background: #e3f2fd !important; color: #0d47a1 !important; }
+.chip-company  { background: #f3e5f5 !important; color: #4a148c !important; }
+.chip-optional { background: #fff8e1 !important; color: #e65100 !important; }
+.chip-low      { background: #e8f5e9 !important; color: #1b5e20 !important; }
+.chip-medium   { background: #fff8e1 !important; color: #e65100 !important; }
+.chip-high     { background: #fce4ec !important; color: #880e4f !important; }
+.chip-critical { background: #b71c1c !important; color: #fff    !important; }
+
+/* ─── Empty / Loading / Error states ────────────────────────────── */
+.empty-state { text-align: center; padding: 64px 24px; color: #bdbdbd; }
+.empty-state mat-icon { font-size: 72px; width: 72px; height: 72px; display: block; margin: 0 auto 16px; }
+.empty-state h3 { font-size: 1.1rem; color: #9e9e9e; margin-bottom: 8px; }
+.empty-state p { font-size: 0.875rem; }
+.loading-state { display: flex; align-items: center; justify-content: center; padding: 64px; }
+.error-state { text-align: center; padding: 64px 24px; color: #ef5350; }
+
+/* ─── Tables ─────────────────────────────────────────────────────── */
+.mat-mdc-table { width: 100%; }
+.action-cell { white-space: nowrap; }
+.action-cell button { margin: 0 2px; }
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-container { padding: 16px; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .filter-row { flex-direction: column; }
+  .filter-row mat-form-field { width: 100%; }
+  .section-header { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 480px) {
+  .stat-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── Global Print Rules ─────────────────────────────────────────── */
+@media print {
+  body, html {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  mat-sidenav,
+  .sidenav,
+  mat-toolbar,
+  .toolbar,
+  .no-print,
+  .section-header,
+  .table-card,
+  .filter-card {
+    display: none !important;
+  }
+
+  mat-sidenav-container,
+  mat-sidenav-content,
+  .content-area,
+  .page-container {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  .modal-backdrop {
+    position: static !important;
+    background: transparent !important;
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: auto !important;
+  }
+
+  .modal-box,
+  .payslip-modal-box {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    background: transparent !important;
+  }
+
+  #printable-payslip {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+  }
+}
+

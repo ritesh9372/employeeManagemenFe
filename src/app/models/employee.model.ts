@@ -1,0 +1,31 @@
+export interface Employee {
+  id: number;
+  user_id?: number;
+  employee_code: string;
+  first_name: string;
+  last_name: string;
+  full_name?: string;
+  email: string;
+  phone?: string;
+  dob?: string;
+  gender?: 'male' | 'female' | 'other';
+  address?: string;
+  city?: string;
+  state?: string;
+  department_id?: number;
+  department_name?: string;
+  designation_id?: number;
+  designation_name?: string;
+  manager_id?: number;
+  manager_name?: string;
+  joining_date?: string;
+  employment_type?: 'full_time' | 'part_time' | 'contract' | 'intern';
+  salary?: number;
+  bank_account?: string;
+  bank_name?: string;
+  ifsc_code?: string;
+  profile_photo?: string;
+  status: 'active' | 'inactive';
+  emergency_contact?: string;
+  created_at?: string;
+}

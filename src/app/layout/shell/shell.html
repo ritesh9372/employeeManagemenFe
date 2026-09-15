@@ -1,0 +1,66 @@
+﻿<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="!isMobile" class="sidenav">
+    <div class="logo">
+      <mat-icon class="logo-icon">corporate_fare</mat-icon>
+      <h2>EMS Portal</h2>
+      <p>Employee Management</p>
+    </div>
+    <mat-nav-list>
+      @for (item of visibleNavItems; track item.route) {
+        <a mat-list-item [routerLink]="item.route" routerLinkActive="active-link"
+           class="nav-link" (click)="onNavClick()">
+          <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+          <span matListItemTitle>{{item.label}}</span>
+        </a>
+      }
+    </mat-nav-list>
+    <div class="sidenav-footer">
+      <button mat-list-item class="nav-link logout-btn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar">
+      <button mat-icon-button (click)="toggleSidenav()" matTooltip="Toggle Menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="app-title">Employee Management System</span>
+      <span class="spacer"></span>
+
+      <button mat-icon-button [routerLink]="'/notifications'"
+              [matBadge]="unreadCount > 0 ? unreadCount : null"
+              matBadgeColor="warn" matTooltip="Notifications">
+        <mat-icon>notifications</mat-icon>
+      </button>
+
+      <button mat-button [matMenuTriggerFor]="userMenu" class="user-btn">
+        <div class="user-avatar">{{userInitials}}</div>
+        <div class="user-info">
+          <span class="user-name">{{userName}}</span>
+          <span class="user-role">{{roleLabel}}</span>
+        </div>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item [routerLink]="'/profile'">
+          <mat-icon>person</mat-icon> My Profile
+        </button>
+        <button mat-menu-item [routerLink]="'/settings'">
+          <mat-icon>settings</mat-icon> Settings
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon> Logout
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
